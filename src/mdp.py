@@ -66,7 +66,7 @@ class MDP:
                     + str(state)
                 )
 
-        raise (
+        raise Exception(
             "No outcome state in simulation for action"
             + str(action)
             + " from "

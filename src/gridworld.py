@@ -522,7 +522,7 @@ class GridWorld(MDP):
                     )
         im = plt.imshow(img, origin="lower")
         plt.title(title)
-        plt.show()
+        plt.pause(1)
         if gif:
             return fig, ax, im
         else:
@@ -574,8 +574,8 @@ class GridWorld(MDP):
         texts = []
         for y in range(self.height):
             for x in range(self.width):
-                value = value_function.get_value((x, y))
                 if (x, y) not in self.blocked_states:
+                    value = value_function.get_value((x, y))
                     text = plt.text(
                         x,
                         y,
@@ -799,7 +799,7 @@ class GridWorld(MDP):
                     if policy.select_action((x, y)) != self.TERMINATE:
                         action = arrow_map[policy.select_action((x, y))]
                         fontsize = "xx-large"
-                    texts.append(plt.text(
+                        texts.append(plt.text(
                                 x,
                                 y,
                                 action,
